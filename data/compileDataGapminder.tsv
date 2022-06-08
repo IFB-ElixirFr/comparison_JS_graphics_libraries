@@ -1,0 +1,185 @@
+country	six_regions	pop_total_2021	income_2021	live_expectancy_2021
+Australia	east_asia_pacific	25800000	50100	83.2
+Brunei	east_asia_pacific	442000	63600	74.6
+Cambodia	east_asia_pacific	16900000	4340	70.3
+China	east_asia_pacific	1440000000	17700	78
+Fiji	east_asia_pacific	903000	11500	68.6
+Hong Kong, China	east_asia_pacific	7550000	58600	84.7
+Indonesia	east_asia_pacific	276000000	11800	71.8
+Japan	east_asia_pacific	126000000	41200	85.1
+Kiribati	east_asia_pacific	121000	2230	61.2
+North Korea	east_asia_pacific	25900000	1670	73.5
+South Korea	east_asia_pacific	51300000	43900	83.2
+Lao	east_asia_pacific	7380000	7920	69.6
+Malaysia	east_asia_pacific	32799999.999999996	27800	75.3
+Micronesia, Fed. Sts.	east_asia_pacific	116000	3300	64.3
+Mongolia	east_asia_pacific	3330000	11800	68.5
+Myanmar	east_asia_pacific	54800000	4770	69.9
+New Zealand	east_asia_pacific	4860000	42900	82.1
+Papua New Guinea	east_asia_pacific	9120000	4160	65.1
+Philippines	east_asia_pacific	111000000	8370	72.1
+Samoa	east_asia_pacific	200000	5720	70.7
+Singapore	east_asia_pacific	5900000	94600	85.1
+Solomon Islands	east_asia_pacific	704000	2480	59.4
+Taiwan	east_asia_pacific	23900000	57000	80.6
+Thailand	east_asia_pacific	70000000	17700	78.8
+Timor-Leste	east_asia_pacific	1340000	2900	71
+Tonga	east_asia_pacific	107000	6210	73.2
+Vanuatu	east_asia_pacific	314000	2800	65.7
+Vietnam	east_asia_pacific	98200000	8650	74.7
+Albania	europe_central_asia	2870000	13900	78.7
+Armenia	europe_central_asia	2970000	12700	76
+Austria	europe_central_asia	9040000	53600	82.4
+Azerbaijan	europe_central_asia	10200000	13800	71.2
+Belarus	europe_central_asia	9440000	19100	74.3
+Belgium	europe_central_asia	11600000	50100	81.7
+Bosnia and Herzegovina	europe_central_asia	3260000	14800	77.3
+Bulgaria	europe_central_asia	6900000	23600	73.6
+Croatia	europe_central_asia	4080000	27800	79
+Cyprus	europe_central_asia	1220000	37800	81.1
+Czech Republic	europe_central_asia	10700000	39900	79.7
+Denmark	europe_central_asia	5810000	57100	81.4
+Estonia	europe_central_asia	1330000	37000	78.3
+Finland	europe_central_asia	5550000	48400	82.2
+France	europe_central_asia	65400000.00000001	44600	83.1
+Georgia	europe_central_asia	3980000	14600	73.7
+Germany	europe_central_asia	83900000	52900	81.5
+Greece	europe_central_asia	10400000	29200	81.3
+Hungary	europe_central_asia	9630000	32400	76.9
+Iceland	europe_central_asia	343000	51900	84.4
+Ireland	europe_central_asia	4980000	90900	82.3
+Italy	europe_central_asia	60400000	40400	83.4
+Kazakhstan	europe_central_asia	19000000	25800	72.3
+Kyrgyz Republic	europe_central_asia	6630000	4920	73.7
+Latvia	europe_central_asia	1870000	31300	76.1
+Lithuania	europe_central_asia	2690000	38100	76.5
+Luxembourg	europe_central_asia	635000	113000	83.2
+Moldova	europe_central_asia	4019999.9999999995	13100	74.6
+Montenegro	europe_central_asia	628000	19900	76.1
+Netherlands	europe_central_asia	17200000	56000	82
+Norway	europe_central_asia	5470000	66200	83.2
+Poland	europe_central_asia	37800000	33500	78.4
+Portugal	europe_central_asia	10200000	33600	82.1
+Romania	europe_central_asia	19100000	30700	75.8
+Russia	europe_central_asia	146000000	27200	73.3
+Serbia	europe_central_asia	8700000	19200	76
+Slovak Republic	europe_central_asia	5460000	31600	77.8
+Slovenia	europe_central_asia	2080000	37800	81.7
+Spain	europe_central_asia	46700000	38800	83.3
+Sweden	europe_central_asia	10200000	51300	83.1
+Switzerland	europe_central_asia	8720000	67400	84.3
+Tajikistan	europe_central_asia	9750000	3570	70
+Turkey	europe_central_asia	85000000	29800	78.9
+Turkmenistan	europe_central_asia	6120000	16000	71.1
+Ukraine	europe_central_asia	43500000	12900	74.1
+United Kingdom	europe_central_asia	68200000	43900	81.3
+Uzbekistan	europe_central_asia	33900000	7200	68.7
+Antigua and Barbuda	america	98700	17100	76.5
+Argentina	america	45600000	20600	76.9
+Bahamas	america	397000	31000	73.6
+Barbados	america	288000	13300	76.4
+Belize	america	405000	5850	74.7
+Bolivia	america	11800000	8250	72.5
+Brazil	america	214000000	14400	76.3
+Chile	america	19200000	24300	80.5
+Colombia	america	51300000	14000	80.5
+Costa Rica	america	5140000	19400	80.5
+Cuba	america	11300000	10200	78.9
+Dominican Republic	america	11000000	17800	73.5
+Ecuador	america	17900000	10500	76.8
+El Salvador	america	6520000	8280	76.2
+Grenada	america	113000	14400	73.4
+Guatemala	america	18200000	8540	73
+Guyana	america	790000	14100	67.5
+Haiti	america	11500000	2760	64.4
+Honduras	america	10100000	5320	72.4
+Jamaica	america	2970000	8870	76.5
+Mexico	america	130000000	18700	75.8
+Nicaragua	america	6700000	5240	75.8
+Panama	america	4380000	28100	80.4
+Paraguay	america	7220000	12700	76.8
+Peru	america	33400000	12100	80.7
+St. Lucia	america	184000	12800	75.4
+St. Vincent and the Grenadines	america	111000	11900	73.2
+Suriname	america	592000	14100	73
+Trinidad and Tobago	america	1400000	24400	75.1
+Uruguay	america	3490000	20800	77.8
+Venezuela	america	28700000	5290	75.1
+Algeria	middle_east_north_africa	44600000	10700	76.6
+Bahrain	middle_east_north_africa	1750000	42300	77.3
+Djibouti	middle_east_north_africa	1000000	5440	67.5
+Egypt	middle_east_north_africa	104000000	12000	71.3
+Iran	middle_east_north_africa	85000000	12600	78.2
+Iraq	middle_east_north_africa	41200000	9310	73.6
+Israel	middle_east_north_africa	8790000	39700	83.3
+Jordan	middle_east_north_africa	10300000	9830	78.5
+Kuwait	middle_east_north_africa	4330000	43600	81.7
+Lebanon	middle_east_north_africa	6770000	10000	76.8
+Libya	middle_east_north_africa	6960000	13800	76.3
+Malta	europe_central_asia	443000	40200	82.9
+Morocco	middle_east_north_africa	37300000	7160	73.8
+Oman	middle_east_north_africa	5220000	26300	74.4
+Qatar	middle_east_north_africa	2930000	89400	76.5
+Saudi Arabia	middle_east_north_africa	35300000	44500	74.8
+Syria	middle_east_north_africa	18300000	3980	75.8
+Tunisia	middle_east_north_africa	11900000	9980	78.1
+United Arab Emirates	middle_east_north_africa	9990000	61300	74.2
+Palestine	middle_east_north_africa	5220000	5580	75.1
+Yemen	middle_east_north_africa	30500000	2370	67.9
+Canada	america	38100000	47600	82.5
+United States	america	333000000	63500	79
+Afghanistan	south_asia	39800000	1950	64
+Bangladesh	south_asia	166000000	5030	75.1
+Bhutan	south_asia	780000	11300	73.8
+India	south_asia	1390000000	6820	71.2
+Maldives	south_asia	544000	15200	79.6
+Nepal	south_asia	29700000	3360	71.6
+Pakistan	south_asia	225000000	4570	66.2
+Sri Lanka	south_asia	21500000	13000	77.6
+Angola	sub_saharan_africa	33900000	6060	65.8
+Benin	sub_saharan_africa	12500000	3330	65.1
+Botswana	sub_saharan_africa	2400000	16800	62.5
+Burkina Faso	sub_saharan_africa	21500000	2160	62.5
+Burundi	sub_saharan_africa	12300000	719	64.5
+Cameroon	sub_saharan_africa	27200000	3480	64
+Cape Verde	sub_saharan_africa	562000	6370	74.1
+Central African Republic	sub_saharan_africa	4920000	943	53.1
+Chad	sub_saharan_africa	16900000	1500	61
+Comoros	sub_saharan_africa	888000	2890	69.2
+Congo, Dem. Rep.	sub_saharan_africa	92400000	1070	65.7
+Congo, Rep.	sub_saharan_africa	5660000	3230	65.9
+Cote d'Ivoire	sub_saharan_africa	27100000	5370	64.9
+Equatorial Guinea	sub_saharan_africa	1450000	17000	66.7
+Eritrea	sub_saharan_africa	3600000	1550	64.5
+Ethiopia	sub_saharan_africa	118000000	2330	69.6
+Gabon	sub_saharan_africa	2280000	14500	68.2
+Gambia	sub_saharan_africa	2490000	2220	67.5
+Ghana	sub_saharan_africa	31700000	5510	66.9
+Guinea	sub_saharan_africa	13500000	2710	61.9
+Guinea-Bissau	sub_saharan_africa	2020000	1920	61.6
+Kenya	sub_saharan_africa	55000000	4450	67
+Lesotho	sub_saharan_africa	2160000	2620	52.6
+Liberia	sub_saharan_africa	5180000	1370	66.7
+Madagascar	sub_saharan_africa	28400000	1550	66.2
+Malawi	sub_saharan_africa	19600000	1030	65.6
+Mali	sub_saharan_africa	20900000	2230	62.6
+Mauritania	sub_saharan_africa	4780000	5020	71.2
+Mauritius	sub_saharan_africa	1270000	20500	75.8
+Mozambique	sub_saharan_africa	32200000.000000004	1240	59.3
+Namibia	sub_saharan_africa	2590000	8660	65.9
+Niger	sub_saharan_africa	25100000	1230	63.2
+Nigeria	sub_saharan_africa	211000000	4920	65.1
+Rwanda	sub_saharan_africa	13300000	2250	69.2
+Sao Tome and Principe	sub_saharan_africa	223000	3650	71.3
+Senegal	sub_saharan_africa	17200000	3410	69
+Seychelles	sub_saharan_africa	98900	25300	73.7
+Sierra Leone	sub_saharan_africa	8140000.000000001	1660	62.6
+Somalia	sub_saharan_africa	16399999.999999998	673	59.1
+South Africa	sub_saharan_africa	60000000	11600	65.6
+Sudan	sub_saharan_africa	44900000	3640	71
+Tanzania	sub_saharan_africa	61500000	2600	67.9
+Togo	sub_saharan_africa	8480000	1590	65.7
+Uganda	sub_saharan_africa	47100000	2140	66.9
+Zambia	sub_saharan_africa	18900000	3170	63.8
+Zimbabwe	sub_saharan_africa	15100000	2590	61.5
+South Sudan	sub_saharan_africa	11400000	1800	64.3
