@@ -12,6 +12,7 @@
 
 library(tidyverse)
 library(dplyr)
+library(stringr)
 library(readr)
 library(jsonlite)
 
@@ -82,7 +83,8 @@ pop_total_2021 <- pop_total  %>%
 # region
 regions_area <- regions %>% 
   select(name, six_regions) %>% 
-  rename(country = name)
+  rename(country = name) %>%
+  mutate(six_regions = gsub("_", " ", str_to_title(six_regions)))
 
 #-------------------------------------------------------------------------------
 #  Merge
