@@ -6,4 +6,4 @@ Ce repository accompagne un article sur Bioinfo.fr disponible ici
 
 ## Le site web
 
-Lien vers le site web : 
+Lien vers le site web : https://ifb-elixirfr.github.io/comparison_JS_graphics_libraries/ 
