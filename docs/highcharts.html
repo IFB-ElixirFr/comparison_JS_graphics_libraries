@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highcharts</title>
+
+    <!-- Bootstrap -->    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+
+    <!-- Ajax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <!-- highligtht.js -->
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <!-- Chart -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="./index.html">Comparison charts in JS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./import.html">Import des données</a>
+                </li>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Charts
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">Chart.js </a></li>
+                    <li><a class="dropdown-item" href="#">echarts</a></li>
+                    <li><a class="dropdown-item" href="./highcharts.html">Highcharts</a></li>
+                    <li><a class="dropdown-item" href="./googleCharts.html">Google Charts</a></li>
+                    <li><a class="dropdown-item" href="#">Plotly</a></li>
+                    <li><a class="dropdown-item" href="#">Vega</a></li>
+                </ul>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+                </li>
+                
+            </ul>
+            <div class="d-flex text-white fs-4">
+                <a class="nav-link mx-1" href="https://github.com/IFB-ElixirFr/comparison_JS_graphics_libraries/discussions/new"><i class="bi bi-question-circle-fill"></i></a>
+                <a class="nav-link mx-1" href="https://github.com/IFB-ElixirFr/comparison_JS_graphics_libraries/issues/new"><i class="bi bi-bug-fill"></i></a>
+                <a class="nav-link mx-1" href="https://github.com/IFB-ElixirFr/comparison_JS_graphics_libraries"><i class="bi bi-github"></i></a>
+            </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <h1>Highcharts.js</h1>
+        <h2>Le résultat</h2>
+        <div id="chart_div" style="width: 100%; height: 500px;"></div>
+        <h2>En pratique</h2>
+        <p><b>Import des librairies</b></p>
+        <pre><code class="hljs language-javascript">
+    &lt;script src="https://code.highcharts.com/highcharts.js">&lt;/script>
+    &lt;script src="https://code.highcharts.com/highcharts-more.js">&lt;/script>
+    &lt;script src="https://code.highcharts.com/modules/exporting.js">&lt;/script>
+    &lt;script src="https://code.highcharts.com/modules/export-data.js">&lt;/script>
+    &lt;script src="https://code.highcharts.com/modules/accessibility.js">&lt;/script>
+        </code></pre>
+        <p><b>Préparation des données</b></p>
+        <p>Pour construire le graphe, si il un dictionnaire avec comme clé x, y, z et un name.</p>
+        <pre><code class="hljs language-javascript">
+    const regions = ["East asia pacific", "Europe central asia", 
+                     "America", "Middle east north africa", "South asia", "Sub saharan africa"];
+            
+    var series = [];
+    var renameObject = [];
+    var temp, color;
+    for (const element of regions) {
+        temp = jsonData.filter(function(s) {
+            return s.six_regions === element
+        });
+
+        if(element == "East asia pacific"){
+            color="blue"
+        } else if(element == "Europe central asia"){
+            color="red"
+        } else if(element == "America"){
+            color="orange"
+        } else if(element == "Middle east north africa"){
+            color="green"
+        } else if(element == "South asia"){
+            color="purple"
+        } else if(element == "Sub saharan africa"){
+            color="cyan"
+        }
+        
+        renameObject = [];
+        for (var i = 0; i < temp.length; i++) {
+            renameObject.push({
+                x:   temp[i].income_2021,
+                y: temp[i].live_expectancy_2021,
+                z: temp[i].pop_total_2021,
+                name: temp[i].country
+            });
+        }
+
+        series.push({
+            data: renameObject,
+            name: element, 
+            fillColor: color, 
+            color: color
+        });
+    }   
+        </code></pre>
+        <p><b>Création du graphe</b></p>
+        <pre><code class="hljs language-javascript">
+    Highcharts.chart('chart_div', {
+        chart: {
+            type: 'bubble',
+            plotBorderWidth: 1,
+            zoomType: 'xy'
+        },
+
+        legend: {
+            enabled: false
+        },
+
+        title: {
+            text: 'World health chart (2021)'
+        },
+
+        subtitle: {
+            text: 'Source: <a href="https://www.gapminder.org/">Gapminder</a>'
+        },
+
+        accessibility: {
+            point: {
+                valueDescriptionFormat: '{index}. {point.name}, fat: {point.x}g, sugar: {point.y}g, obesity: {point.z}%.'
+            }
+        },
+
+        xAxis: {
+            gridLineWidth: 1,
+            title: {
+                text: 'Income'
+            },
+            labels: {
+                format: '{value}'
+            },
+        },
+
+        yAxis: {
+            startOnTick: false,
+            endOnTick: false,
+            title: {
+                text: 'Life expectancy'
+            },
+            labels: {
+                format: '{value}'
+            },
+            maxPadding: 0.2,
+        },
+
+        tooltip: {
+            useHTML: true,
+            headerFormat: '<table>',
+            pointFormat: '<tr><th colspan="2"><h3>{point.name}</h3></th></tr>' +
+                '<tr><th>Icome:</th><td>{point.x}g</td></tr>' +
+                '<tr><th>Life expectancy:</th><td>{point.y}</td></tr>' +
+                '<tr><th>Population:</th><td>{point.z}%</td></tr>',
+            footerFormat: '</table>',
+            followPointer: true
+        },
+
+        plotOptions: {
+            series: {
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.name}'
+                }
+            },
+            
+        },
+
+        series: series
+
+    });
+        </code></pre>
+    <h2>Quelques liens </h2>
+    <ul>
+        <li><a href="https://www.highcharts.com/?_ga=2.132584333.2030448147.1654787291-1665894780.1654696091" target="_blank">Page officielle</a></li>
+        <li><a href="https://api.highcharts.com/highcharts/" target="_blank">La doc</a></li>
+    </ul>
+    </div>
+
+    <script>
+         $.ajax({
+                url: "https://raw.githubusercontent.com/IFB-ElixirFr/comparison_JS_graphics_libraries/main/data/compileDataGapminder.json",
+                dataType: "json",
+                success: function (jsonData) {
+                    const regions = ["East asia pacific", "Europe central asia", 
+                    "America", "Middle east north africa", "South asia", "Sub saharan africa"];
+                    
+                    var series = [];
+                    var renameObject = [];
+                    var temp, color;
+                    for (const element of regions) {
+                        temp = jsonData.filter(function(s) {
+                            return s.six_regions === element
+                        });
+
+                        if(element == "East asia pacific"){
+                            color="blue"
+                        } else if(element == "Europe central asia"){
+                            color="red"
+                        } else if(element == "America"){
+                            color="orange"
+                        } else if(element == "Middle east north africa"){
+                            color="green"
+                        } else if(element == "South asia"){
+                            color="purple"
+                        } else if(element == "Sub saharan africa"){
+                            color="cyan"
+                        }
+                        
+                        renameObject = [];
+                        for (var i = 0; i < temp.length; i++) {
+                            renameObject.push({
+                                x:   temp[i].income_2021,
+                                y: temp[i].live_expectancy_2021,
+                                z: temp[i].pop_total_2021,
+                                name: temp[i].country
+                            });
+                        }
+
+                        series.push({
+                            data: renameObject,
+                            name: element, 
+                            fillColor: color, 
+                            color: color
+                        });
+                    }
+
+                    Highcharts.chart('chart_div', {
+                        chart: {
+                            type: 'bubble',
+                            plotBorderWidth: 1,
+                            zoomType: 'xy'
+                        },
+
+                        legend: {
+                            enabled: false
+                        },
+
+                        title: {
+                            text: 'World health chart (2021)'
+                        },
+
+                        subtitle: {
+                            text: 'Source: <a href="https://www.gapminder.org/">Gapminder</a>'
+                        },
+
+                        accessibility: {
+                            point: {
+                                valueDescriptionFormat: '{index}. {point.name}, fat: {point.x}g, sugar: {point.y}g, obesity: {point.z}%.'
+                            }
+                        },
+
+                        xAxis: {
+                            gridLineWidth: 1,
+                            title: {
+                                text: 'Income'
+                            },
+                            labels: {
+                                format: '{value}'
+                            },
+                        },
+
+                        yAxis: {
+                            startOnTick: false,
+                            endOnTick: false,
+                            title: {
+                                text: 'Life expectancy'
+                            },
+                            labels: {
+                                format: '{value}'
+                            },
+                            maxPadding: 0.2,
+                        },
+
+                        tooltip: {
+                            useHTML: true,
+                            headerFormat: '<table>',
+                            pointFormat: '<tr><th colspan="2"><h3>{point.name}</h3></th></tr>' +
+                                '<tr><th>Icome:</th><td>{point.x}g</td></tr>' +
+                                '<tr><th>Life expectancy:</th><td>{point.y}</td></tr>' +
+                                '<tr><th>Population:</th><td>{point.z}%</td></tr>',
+                            footerFormat: '</table>',
+                            followPointer: true
+                        },
+
+                        plotOptions: {
+                            series: {
+                                dataLabels: {
+                                    enabled: true,
+                                    format: '{point.name}'
+                                }
+                            },
+                            
+                        },
+
+                        series: series
+
+                    });
+                }
+            });
+    </script>
+    
+</body>
+</html>

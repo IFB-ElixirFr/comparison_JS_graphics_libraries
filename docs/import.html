@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teamplate</title>
+    <title>Import des données</title>
+
     <!-- Bootstrap -->    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
@@ -19,43 +20,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
 
-    <!-- Chart -->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        google.charts.load('current', {'packages':['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
+    <!-- Datatable -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
 
-        function drawChart() {
-            $.ajax({
-                url: "https://raw.githubusercontent.com/IFB-ElixirFr/comparison_JS_graphics_libraries/main/data/compileDataGapminder.json",
-                dataType: "json",
-                success: function (jsonData) {
-                    var data = new google.visualization.DataTable();
-            
-                    data.addColumn('string', 'Country');
-                    data.addColumn('number', 'Income');
-                    data.addColumn('number', 'Live expectancy');
-                    data.addColumn('string', 'Region');
-                    data.addColumn('number', 'Population');
-                    
-                    for (var i = 0; i < jsonData.length; i++) {
-                        data.addRow([jsonData[i].country, jsonData[i].income_2021, jsonData[i].live_expectancy_2021, 
-                        jsonData[i].six_regions, jsonData[i].pop_total_2021]);
-                    }
-
-                    var options = {
-                        title: 'World health chart (2021)',
-                        hAxis: {title: 'Income'},
-                        vAxis: {title: 'Life Expectancy'},
-                        bubble: {textStyle: {fontSize: 11}}
-                    };
-
-                    var chart = new google.visualization.BubbleChart(document.getElementById('chart_div'));
-                    chart.draw(data, options);
-                }
-            }); 
-        }
-      </script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-3">
@@ -99,57 +67,52 @@
         </div>
     </nav>
     <div class="container-fluid">
-        <h1>Google chart</h1>
-        <h2>Le résultat</h2>
-        <div id="chart_div" style="width: 100%; height: 500px;"></div>
+        <h1>Import des données</h1>
+        <p>Dans tous nos exemples, nous utiliserons AJAX pour importer le fichier JSON 
+            disponible sur <a href="https://raw.githubusercontent.com/IFB-ElixirFr/comparison_JS_graphics_libraries/main/data/compileDataGapminder.json">GitHub</a></p>
 
+        
         <h2>En pratique</h2>
         <p><b>Import des librairies</b></p>
         <pre><code class="hljs language-javascript">
-    &lt;script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer">&lt;/script>
         </code></pre>
-        <p><b>Préparation des données et création du graphe</b></p>
-        <pre><code class="hljs language-javascript">
-    google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
-
-    function drawChart() {
-        $.ajax({
-            url: "https://raw.githubusercontent.com/IFB-ElixirFr/comparison_JS_graphics_libraries/main/data/compileDataGapminder.json",
-            dataType: "json",
-            success: function (jsonData) {
-                var data = new google.visualization.DataTable();
+        <p><b>Récuparation des données</b></p>
         
-                data.addColumn('string', 'Country');
-                data.addColumn('number', 'Income');
-                data.addColumn('number', 'Live expectancy');
-                data.addColumn('string', 'Region');
-                data.addColumn('number', 'Population');
-                
-                for (var i = 0; i < jsonData.length; i++) {
-                    data.addRow([jsonData[i].country, jsonData[i].income_2021, jsonData[i].live_expectancy_2021, 
-                    jsonData[i].six_regions, jsonData[i].pop_total_2021]);
-                }
-
-                var options = {
-                    title: 'World health chart (2021)',
-                    hAxis: {title: 'Income'},
-                    vAxis: {title: 'Life Expectancy'},
-                    bubble: {textStyle: {fontSize: 11}}
-                };
-
-                var chart = new google.visualization.BubbleChart(document.getElementById('chart_div'));
-                chart.draw(data, options);
-            }
-        }); 
-    }
+        <pre><code class="hljs language-javascript">
+    $.ajax({
+        url: "https://raw.githubusercontent.com/IFB-ElixirFr/comparison_JS_graphics_libraries/main/data/compileDataGapminder.json",
+        dataType: "json",
+        success: function (jsonData) {
+            console.log(jsonData)
+        }    
+    });
         </code></pre>
+        
+        <h2>Visualisation des données</h2>
+        <table id="datatable" style="width: 100%;"></table>
+    </div>
 
-        <h2>Quelques liens </h2>
-        <ul>
-            <li><a href="https://developers.google.com/chart" target="_blank">Page officielle</a></li>
-            <li><a href="https://developers.google.com/chart/interactive/docs/gallery/bubblechart" target="_blank">La doc</a></li>
-        </ul> 
-    </div>     
+    <script>
+         $.ajax({
+                url: "https://raw.githubusercontent.com/IFB-ElixirFr/comparison_JS_graphics_libraries/main/data/compileDataGapminder.json",
+                dataType: "json",
+                success: function (jsonData) {
+                    
+                    $('#datatable').DataTable( {
+                        data: jsonData,
+                        columns: [
+                            { data: 'country', title: 'country' },
+                            { data: 'six_regions', title: 'six_regions' },
+                            { data: 'pop_total_2021', title: 'pop_total_2021' },
+                            { data: 'income_2021', title: 'income_2021' },
+                            { data: 'live_expectancy_2021', title: 'live_expectancy_2021' }
+                        ]
+                    } );
+
+                }
+            });
+    </script>
+    
 </body>
 </html>
