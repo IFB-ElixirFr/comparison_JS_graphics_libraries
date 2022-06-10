@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teamplate</title>
+
+    <!-- Bootstrap -->    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+
+    <!-- Ajax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <!-- Nav -->
+    <script> 
+        $(function(){
+            $("#nav_div").load("./nav.html"); 
+        });
+        </script> 
+
+    <!-- highligtht.js -->
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <!-- Chart -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    
+
+</head>
+<body>
+    <div id="nav_div"></div>
+    <div class="container-fluid">
+        <h1>APEXCHARTS</h1>
+        <h2>Le résultat</h2>
+        <div id="chart_div" style="width: 100%; height: 500px;"></div>
+
+        <h2>En pratique</h2>
+        <p><b>Import des librairies</b></p>
+        <pre><code class="hljs language-javascript">
+
+        </code></pre>
+        <p><b>Préparation des données</b></p>
+        <pre><code class="hljs language-javascript">
+            
+        </code></pre>
+        <p><b>Création du graphe</b></p>
+        <pre><code class="hljs language-javascript">
+            
+        </code></pre>
+
+        <h2>Quelques liens </h2>
+        <ul>
+            <li><a href="#" target="_blank">Page officielle</a></li>
+            <li><a href="#" target="_blank">La doc</a></li>
+        </ul>
+        
+    </div>
+
+    <script>
+        
+        $.ajax({
+                url: "https://raw.githubusercontent.com/IFB-ElixirFr/comparison_JS_graphics_libraries/main/data/compileDataGapminder.json",
+                dataType: "json",
+                success: function (jsonData) {
+                    const regions = ["East asia pacific", "Europe central asia", 
+                    "America", "Middle east north africa", "South asia", "Sub saharan africa"];
+                    
+                    var series = [];
+                    var renameObject = [];
+                    var temp, color;
+                    for (const element of regions) {
+                        temp = jsonData.filter(function(s) {
+                            return s.six_regions === element
+                        });
+ 
+                        renameObject = [];
+                        for (var i = 0; i < temp.length; i++) {
+                            renameObject.push([
+                                temp[i].income_2021,
+                                temp[i].live_expectancy_2021,
+                                temp[i].pop_total_2021
+                                ]);
+                        }
+
+                        series.push({
+                            data: renameObject,
+                            name: element
+                        });
+                    }
+
+                    var options = {
+                    series: series,
+                    chart: {
+                        height: 500,
+                        type: 'bubble',
+                    },
+                    dataLabels: {
+                        enabled: false
+                    },
+                    tooltip: {
+                        x: {
+                            formatter: undefined,
+                            title: {
+                                formatter: (seriesName) => seriesName,
+                            },
+                        },
+                        y: {
+                            show: false,
+                        },
+                        z: {
+                            formatter: undefined,
+                            title: 'Population: '
+                        },
+                    },
+                    fill: {
+                        opacity: 0.8
+                    },
+                    title: {
+                        text: 'World health chart (2021)'
+                    },
+                    xaxis: {
+                    },
+                    yaxis: {
+                        min:40, 
+                        max: 100
+                    }
+                    };
+
+                    var chart = new ApexCharts(document.querySelector("#chart_div"), options);
+                    chart.render();
+                }
+            });
+    </script>
+    
+</body>
+</html>
