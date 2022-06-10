@@ -58,41 +58,25 @@
             
     var series = [];
     var renameObject = [];
-    var temp, color;
+    var temp;
     for (const element of regions) {
         temp = jsonData.filter(function(s) {
             return s.six_regions === element
-        });
-
-        if(element == "East asia pacific"){
-            color="blue"
-        } else if(element == "Europe central asia"){
-            color="red"
-        } else if(element == "America"){
-            color="orange"
-        } else if(element == "Middle east north africa"){
-            color="green"
-        } else if(element == "South asia"){
-            color="purple"
-        } else if(element == "Sub saharan africa"){
-            color="cyan"
-        }
-        
+        });   
         renameObject = [];
         for (var i = 0; i < temp.length; i++) {
             renameObject.push({
                 x:   temp[i].income_2021,
                 y: temp[i].live_expectancy_2021,
                 z: temp[i].pop_total_2021,
-                name: temp[i].country
+                name: temp[i].country, 
+                region: element
             });
         }
 
         series.push({
             data: renameObject,
-            name: element, 
-            fillColor: color, 
-            color: color
+            name: element
         });
     }   
         </code></pre>
@@ -106,7 +90,7 @@
         },
 
         legend: {
-            enabled: false
+            enabled: true
         },
 
         title: {
@@ -151,7 +135,8 @@
             pointFormat: '<tr><th colspan="2"><h3>{point.name}</h3></th></tr>' +
                 '<tr><th>Icome:</th><td>{point.x}g</td></tr>' +
                 '<tr><th>Life expectancy:</th><td>{point.y}</td></tr>' +
-                '<tr><th>Population:</th><td>{point.z}%</td></tr>',
+                '<tr><th>Population:</th><td>{point.z}</td></tr>' +
+                '<tr><th>Region:</th><td>{point.region}</td></tr>',
             footerFormat: '</table>',
             followPointer: true
         },
@@ -192,36 +177,21 @@
                         temp = jsonData.filter(function(s) {
                             return s.six_regions === element
                         });
-
-                        if(element == "East asia pacific"){
-                            color="blue"
-                        } else if(element == "Europe central asia"){
-                            color="red"
-                        } else if(element == "America"){
-                            color="orange"
-                        } else if(element == "Middle east north africa"){
-                            color="green"
-                        } else if(element == "South asia"){
-                            color="purple"
-                        } else if(element == "Sub saharan africa"){
-                            color="cyan"
-                        }
-                        
+ 
                         renameObject = [];
                         for (var i = 0; i < temp.length; i++) {
                             renameObject.push({
                                 x:   temp[i].income_2021,
                                 y: temp[i].live_expectancy_2021,
                                 z: temp[i].pop_total_2021,
-                                name: temp[i].country
+                                name: temp[i].country,
+                                region: element
                             });
                         }
 
                         series.push({
                             data: renameObject,
-                            name: element, 
-                            fillColor: color, 
-                            color: color
+                            name: element
                         });
                     }
 
@@ -233,7 +203,7 @@
                         },
 
                         legend: {
-                            enabled: false
+                            enabled: true
                         },
 
                         title: {
@@ -278,7 +248,8 @@
                             pointFormat: '<tr><th colspan="2"><h3>{point.name}</h3></th></tr>' +
                                 '<tr><th>Icome:</th><td>{point.x}g</td></tr>' +
                                 '<tr><th>Life expectancy:</th><td>{point.y}</td></tr>' +
-                                '<tr><th>Population:</th><td>{point.z}%</td></tr>',
+                                '<tr><th>Population:</th><td>{point.z}</td></tr>' +
+                                '<tr><th>Region:</th><td>{point.region}</td></tr>',
                             footerFormat: '</table>',
                             followPointer: true
                         },
